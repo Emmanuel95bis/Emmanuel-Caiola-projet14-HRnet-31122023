@@ -1,0 +1,31 @@
+.btn {
+  font-weight: 800;
+  margin: 12px auto;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 16px;
+  color: white;
+  width: 25%;
+}
+
+.btn-primary {
+  background: #708716;
+  margin-top: 80px;
+}
+.btn-primary:hover {
+  background: #93ad18;
+  color: #000000;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: white;
+}
+.btn-secondary:hover {
+  background: #93ad18;
+  color: #000000;
+  transition: 0.5s;
+  cursor: pointer;
+}/*# sourceMappingURL=styles.css.map */

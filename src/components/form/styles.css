@@ -1,0 +1,28 @@
+.form-layout {
+  width: 100%;
+}
+.form-layout form {
+  background: transparent;
+}
+.form-layout .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  border-radius: 5px;
+}
+.form-layout .form-group label {
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: left;
+}
+.form-layout .form-group input, .form-layout .form-group select {
+  padding: 4px;
+  font-size: 16px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-weight: 800;
+  text-align: center;
+}
+.form-layout .form-group input:focus, .form-layout .form-group select:focus {
+  border: #fff;
+}/*# sourceMappingURL=styles.css.map */

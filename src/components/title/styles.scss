@@ -1,0 +1,11 @@
+@import "../../style/colors.scss";
+
+h1 {
+  color: $font-1;
+}
+
+h2 {
+  color: $font-2;
+  display: flex;
+    justify-content: center;
+}

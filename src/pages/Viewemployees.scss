@@ -1,0 +1,76 @@
+
+@import "../style/colors.scss";
+
+main{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.entries_search{
+    margin-left: 10%;
+    width:80%;
+display:flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.entries{
+    display:flex;
+    flex-direction: row;
+    gap:5px;
+    
+}
+
+.search{
+    display:flex;
+    flex-direction: row;
+    gap:5px;
+}
+
+.span_pages{
+    width: 11px;
+    height: 20px;
+    padding: 5px;
+    border: 2px solid $background-3;
+   
+}
+
+.basTableau{
+    margin-top: 5px;
+    margin-left: 7%;
+    width: 84%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.basTableau_previousNext{
+    display: flex;
+    gap: 6px;
+}
+
+.facret{
+    display: flex;
+    flex-direction: column;
+    margin: -6px;
+  
+}
+.tableHeader{
+    display:flex;
+    flex-direction: row;
+    gap:15px;
+}
+
+@media screen and (max-width: 950px) {
+    .facret{
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+      
+    }
+    .tableHeader {
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+        align-items: center;
+    }
+}

@@ -1,0 +1,8 @@
+.box {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  background: #c30c0c;
+  width: 100%;
+  font-weight: 700;
+  padding: 1em;
+  border-radius: 5px;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,92 @@
+@import "../../style/colors.scss";
+
+header {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  box-sizing: content-box;
+  padding: 0 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+i{
+  color:black
+}
+  img{
+    width:150px;
+    height:150px;
+  }
+
+  a{
+    text-decoration: none;
+    :hover{
+      color:$font-3;
+      text-decoration: none;
+    }
+  }
+
+  h1{
+    color:$font-2;
+    font-size: 34px;
+  }
+
+  svg {
+    cursor: pointer;
+    font-size: 28px;
+  }
+
+  .auth {
+    position: relative;
+
+    .auth-active {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      background: white;
+      width: auto;
+      min-width: 180px;
+      padding: 1em;
+      position: absolute;
+      right: 10px;
+      top: 40px;
+      border-radius: 10px;
+
+      li {
+        margin-top: 8px;
+      }
+
+      a {
+        &:hover {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+
+header_firstrow{
+  display:flex;
+  flex-direction: row;
+  width:50%;
+   }
+
+@media screen and (max-width: 600px) {
+  header {
+    display:flex;
+    flex-direction: column;
+  img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+header_link{
+  display:flex;
+  flex-direction: row;
+  gap: 20px;
+   }
+header_firstrow{
+  display:flex;
+  flex-direction: row;
+   }
+}

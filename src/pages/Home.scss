@@ -1,0 +1,52 @@
+@import "../style/colors.scss";
+
+
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.title {
+  align-items: center;
+}
+
+.createmployee {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.createmployee span{
+  margin-top: -16px;
+  margin-bottom: 10px;
+  color:red;
+}
+
+.createmployee_who,.createmployee_where   {
+  width:40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+fieldset{
+  border: 3px solid $background-3;
+  
+}
+
+
+@media screen and (max-width: 600px) {
+  .createmployee {
+    width:90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+  }
+  .createmployee_who,.createmployee_where   {
+    width:100%;
+
+  }
+}

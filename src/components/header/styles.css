@@ -1,0 +1,79 @@
+header {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  box-sizing: content-box;
+  padding: 0 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+header i {
+  color: black;
+}
+header img {
+  width: 150px;
+  height: 150px;
+}
+header a {
+  text-decoration: none;
+}
+header a :hover {
+  color: #9C0A0E;
+  text-decoration: none;
+}
+header h1 {
+  color: #000000;
+  font-size: 34px;
+}
+header svg {
+  cursor: pointer;
+  font-size: 28px;
+}
+header .auth {
+  position: relative;
+}
+header .auth .auth-active {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background: white;
+  width: auto;
+  min-width: 180px;
+  padding: 1em;
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  border-radius: 10px;
+}
+header .auth .auth-active li {
+  margin-top: 8px;
+}
+header .auth .auth-active a:hover {
+  font-weight: bold;
+}
+
+header_firstrow {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+  header img {
+    width: 80px;
+    height: 80px;
+  }
+  header_link {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  header_firstrow {
+    display: flex;
+    flex-direction: row;
+  }
+}/*# sourceMappingURL=styles.css.map */
