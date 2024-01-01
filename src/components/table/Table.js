@@ -23,7 +23,7 @@ export function Table({ header, users }) {
             <td>{employee.LastName}</td>
             <td>{employee.StartDate}</td>
             <td>{employee.Department}</td>
-            <td>{employee.Dateofbirth}</td>
+            <td>{employee.DateOfBirth}</td>
             <td>{employee.Street}</td>
             <td>{employee.City}</td>
             <td>{employee.State}</td>

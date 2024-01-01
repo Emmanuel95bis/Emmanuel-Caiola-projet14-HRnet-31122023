@@ -1,5 +1,5 @@
 export const setEmployees = (datas) => {
-  localStorage.removeItem("Employees");
+  //localStorage.removeItem("Employees");
   localStorage.setItem("Employees", JSON.stringify(datas));
   //localStorage.setItem("Employees", datas);
 };

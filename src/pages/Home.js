@@ -23,7 +23,6 @@ export function Home() {
   const [zipcode, setZipcode] = useState("");
   const [error, setError] = useState([]);
 
-  let storage = [];
   let errors = [];
 
   function syntaxeControle(varControl, typeControl) {
@@ -41,11 +40,8 @@ export function Home() {
           flag === 1 ? (flag = 3) : (flag = 2);
         }
       }
-      if (flag !== 0) {
-        return flag;
-      } else {
-        return flag;
-      }
+      if (flag !== 0) errors[4] = 1;
+      return flag;
     }
 
     flag = 0;
@@ -61,45 +57,54 @@ export function Home() {
           flag === 1 ? (flag = 3) : (flag = 2);
         }
       }
-
+      if (flag !== 0) errors[4] = 1;
       return flag;
     }
+  }
 
-    // Handle the case when typeControl is neither "1" nor "2"
-    errors[4] = false;
-    return false;
+  function searchAbbreviationState() {
+    let ab = "";
+    states.forEach((element) => {
+      if (element.name === state) {
+        ab = element.abbreviation;
+      }
+    });
+    return ab;
   }
 
   function saveEmployee() {
     errors = [];
-
+    errors[4] = 0;
     errors[0] = syntaxeControle(firstname, "1");
     errors[1] = syntaxeControle(lastname, "1");
     errors[2] = syntaxeControle(street, "2");
     errors[3] = syntaxeControle(city, "1");
 
-    console.log("11111111");
-    const updatedStorage = getEmployees();
-    console.log(storage);
-    storage.push(updatedStorage);
-    storage.push(
-      [3],
-      [
-        firstname,
-        lastname,
-        startdate,
-        department,
-        dateofbirth,
-        street,
-        city,
-        state,
-        zipcode,
-      ]
-    );
-    //let data=[firstname,lastname,startdate,department,dateofbirth,street,city,state,zipcode]
-    console.log(storage[1]);
-    setEmployees(storage);
+    if (errors[4] === 0) {
+      console.log("error[4]" + errors[4]);
+      const updatedStorage = getEmployees();
+      //console.log(storage);
 
+      const stateAbbreviation = searchAbbreviationState();
+      let employeeData = {
+        FirstName: firstname,
+        LastName: lastname,
+        StartDate: startdate,
+        Department: department,
+        DateOfBirth: dateofbirth,
+        Street: street,
+        City: city,
+        State: stateAbbreviation,
+        ZipCode: zipcode,
+      };
+
+      // Assuming updatedStorage is an array
+      updatedStorage.push(employeeData);
+
+      //let data=[firstname,lastname,startdate,department,dateofbirth,street,city,state,zipcode]
+      console.log(updatedStorage);
+      setEmployees(updatedStorage);
+    }
     setError(errors);
   }
 
@@ -107,18 +112,18 @@ export function Home() {
     <>
       <Header />
       <main>
-        <div class="title">
+        <div className="title">
           <Title type={"h2"} content={"Create Employee"} />
         </div>
-        <div class="createmployee">
-          <div class="createmployee_who">
+        <div className="createmployee">
+          <div className="createmployee_who">
             <Input
               association={"first-name"}
               text={"First Name (saisie 'a-z')"}
               type={"text"}
               onChange={setFirstname}
             />
-            {console.log("errors[0] in code" + error[0])}
+
             {error[0] === 1 ? <span>Taille insuffisante</span> : null}
             {error[0] === 2 ? <span>Saisie erronée</span> : null}
             {error[0] === 3 ? (
@@ -162,7 +167,7 @@ export function Home() {
               onChange={setDepartment}
             />
           </div>
-          <fieldset class="createmployee_where">
+          <fieldset className="createmployee_where">
             <legend>Address</legend>
 
             <Input

@@ -11,13 +11,11 @@ import { useState, useEffect } from "react";
 
 import "./Viewemployees.scss";
 
-employees.forEach((element, index) => {
-  console.log(`Employee ${index + 1}:`, element);
-});
-setEmployees(employees);
-const retrievedEmployees = getEmployees();
+let retrievedEmployees = getEmployees();
 
+console.log("000000000000");
 retrievedEmployees.forEach((element, index) => {
+  console.log("111111111111");
   console.log(`Employee ${index + 1}:`, element);
 });
 
@@ -38,6 +36,10 @@ export function Viewemployees() {
 
     return filteredEmployees;
   }
+
+  useEffect(() => {
+    retrievedEmployees = getEmployees();
+  }, []);
 
   const displayedEmployees =
     displayedEntries.length !== 0
