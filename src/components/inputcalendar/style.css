@@ -1,0 +1,34 @@
+.react-datepicker-ignore-onclickoutside {
+  width: 100%;
+}
+
+#root > div > main > div.createmployee > div > div > div > input[type=text] {
+  padding: 0px;
+  width: 100%;
+  text-indent: 2px;
+}
+
+.react-datepicker-wrapper {
+  display: flex;
+  padding: 0;
+  border: 0;
+  width: 80%;
+}
+
+.react-datepicker__input-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.react-datepicker__input-container .react-datepicker__calendar-icon {
+  position: absolute;
+  width: 2em;
+  box-sizing: content-box;
+  top: -27px;
+  padding: 0px;
+}
+
+.react-datepicker__view-calendar-icon input {
+  padding: 0px;
+}/*# sourceMappingURL=style.css.map */

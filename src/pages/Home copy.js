@@ -145,6 +145,13 @@ export function Home() {
             <Inputcalendar onChange={setDateofbirth} />
 
             <Input
+              association={"date-of-birth"}
+              text={"Date of Birth"}
+              type={"text"}
+              onChange={setDateofbirth}
+            />
+
+            <Input
               association={"start-date"}
               text={"Start Date"}
               type={"text"}
