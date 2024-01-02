@@ -64,7 +64,7 @@ i{
 }
 
 
-header_firstrow{
+.header-first-row{
   display:flex;
   flex-direction: row;
   width:50%;
@@ -80,12 +80,12 @@ header_firstrow{
   }
 }
 
-header_link{
+.header-link{
   display:flex;
   flex-direction: row;
   gap: 20px;
    }
-header_firstrow{
+.header-first-row{
   display:flex;
   flex-direction: row;
    }

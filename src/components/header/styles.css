@@ -52,7 +52,7 @@ header .auth .auth-active a:hover {
   font-weight: bold;
 }
 
-header_firstrow {
+.header-first-row {
   display: flex;
   flex-direction: row;
   width: 50%;
@@ -67,12 +67,12 @@ header_firstrow {
     width: 80px;
     height: 80px;
   }
-  header_link {
+  .header-link {
     display: flex;
     flex-direction: row;
     gap: 20px;
   }
-  header_firstrow {
+  .header-first-row {
     display: flex;
     flex-direction: row;
   }
