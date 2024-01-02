@@ -141,15 +141,12 @@ export function Home() {
             {error[1] === 3 ? (
               <span>Taille insuffisante et saisie erronée</span>
             ) : null}
+
             <label>Date of Birth</label>
             <Inputcalendar onChange={setDateofbirth} />
 
-            <Input
-              association={"start-date"}
-              text={"Start Date"}
-              type={"text"}
-              onChange={setStartdate}
-            />
+            <label>Start Date</label>
+            <Inputcalendar onChange={setStartdate} />
 
             <Select
               association={"department"}

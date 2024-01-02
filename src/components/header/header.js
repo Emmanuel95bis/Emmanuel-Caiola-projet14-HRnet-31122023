@@ -15,7 +15,7 @@ export const Header = () => {
           <p>Create Employee</p>
         </Link>
 
-        <Link to="Viewemployees">
+        <Link to="/Viewemployees">
           <p>View Current Employees</p>
         </Link>
       </header_link>
