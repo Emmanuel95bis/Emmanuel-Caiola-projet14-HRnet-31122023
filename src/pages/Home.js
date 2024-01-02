@@ -10,6 +10,8 @@ import { Inputcalendar } from "../components/inputcalendar/inputcalendar";
 import { setEmployees, getEmployees } from "../localstorage/Localstorage";
 import { useState } from "react";
 
+import { toastSuccess, toastError, Toast } from "../components/toast/toast";
+
 import "./Home.scss";
 
 export function Home() {
@@ -61,6 +63,15 @@ export function Home() {
       if (flag !== 0) errors[4] = 1;
       return flag;
     }
+
+    flag = 0;
+
+    if (typeControl === "3") {
+      if (varControl === "") flag = 1;
+
+      if (flag !== 0) errors[4] = 1;
+      return flag;
+    }
   }
 
   function searchAbbreviationState() {
@@ -80,11 +91,12 @@ export function Home() {
     errors[1] = syntaxeControle(lastname, "1");
     errors[2] = syntaxeControle(street, "2");
     errors[3] = syntaxeControle(city, "1");
+    errors[5] = syntaxeControle(dateofbirth, "3");
+    errors[6] = syntaxeControle(startdate, "3");
+    if (errors[4] === 1) toastError("Saisie incorrecte");
 
     if (errors[4] === 0) {
-      console.log("error[4]" + errors[4]);
       const updatedStorage = getEmployees();
-      //console.log(storage);
 
       const stateAbbreviation = searchAbbreviationState();
       let employeeData = {
@@ -99,12 +111,12 @@ export function Home() {
         ZipCode: zipcode,
       };
 
-      // Assuming updatedStorage is an array
       updatedStorage.push(employeeData);
 
-      //let data=[firstname,lastname,startdate,department,dateofbirth,street,city,state,zipcode]
       console.log(updatedStorage);
       setEmployees(updatedStorage);
+
+      toastSuccess("Félicitation,vous êtes entré dans la base de HRnet");
     }
     setError(errors);
   }
@@ -144,9 +156,15 @@ export function Home() {
 
             <label>Date of Birth</label>
             <Inputcalendar onChange={setDateofbirth} />
-
+            {error[5] === 1 ? (
+              <span>Veuillez sellectionner une date</span>
+            ) : null}
+            <Toast />
             <label>Start Date</label>
             <Inputcalendar onChange={setStartdate} />
+            {error[6] === 1 ? (
+              <span>Veuillez sellectionner une date</span>
+            ) : null}
 
             <Select
               association={"department"}
