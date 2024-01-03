@@ -196,12 +196,12 @@ export function Viewemployees() {
               <div className="facret">
                 <FaCaretUp
                   onClick={() => {
-                    sortOut("Dateofbirth", "up");
+                    sortOut("DateOfBirth", "up");
                   }}
                 />{" "}
                 <FaCaretDown
                   onClick={() => {
-                    sortOut("Dateofbirth", "down");
+                    sortOut("DateOfBirth", "down");
                   }}
                 />
               </div>
