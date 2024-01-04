@@ -7,18 +7,11 @@ import { Select } from "../components/select/Select";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 //import { setEmployees} from "../localstorage/Localstorage";
 import { getEmployees } from "../localstorage/Localstorage";
+import { useSelector } from "react-redux";
 
 import { useState, useEffect } from "react";
 
 import "./Viewemployees.scss";
-
-let retrievedEmployees = getEmployees();
-
-console.log("000000000000");
-retrievedEmployees.forEach((element, index) => {
-  console.log("111111111111");
-  console.log(`Employee ${index + 1}:`, element);
-});
 
 export function Viewemployees() {
   const [search, setSearch] = useState("");
@@ -38,9 +31,18 @@ export function Viewemployees() {
     return filteredEmployees;
   }
 
-  useEffect(() => {
-    retrievedEmployees = getEmployees();
-  }, []);
+  let retrievedEmployees = useSelector((state) => state.employees.isEmployee);
+
+  console.log("000000000000", retrievedEmployees);
+
+  if (retrievedEmployees) {
+    retrievedEmployees.forEach((element, index) => {
+      console.log("111111111111");
+      console.log(`Employee ${index + 1}:`, element);
+    });
+  } else {
+    console.log("No employees found"); // Handle the case where retrievedEmployees is undefined
+  }
 
   const displayedEmployees =
     displayedEntries.length !== 0

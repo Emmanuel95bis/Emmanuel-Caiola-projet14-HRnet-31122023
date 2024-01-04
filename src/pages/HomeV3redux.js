@@ -1,13 +1,15 @@
 import { Header } from "../components/header/header";
 import { Footer } from "../components/footer/footer";
 import { ButtonPrimary } from "../components/buttons/buttonPrimary";
-import { Input } from "../components/input/Input";
-import { Select } from "../components/select/Select";
+import { Input } from "../components/input/Inputv2po";
+import { Select } from "../components/select/Selectv2po";
 import { states } from "../datas/States";
 import { Title } from "../components/title/Title";
 import { Inputcalendar } from "../components/inputcalendar/inputcalendar";
+import { addEmployee } from "../reducer/employeesReducer";
+import { useDispatch } from "react-redux";
 
-import { setEmployees, getEmployees } from "../localstorage/Localstorage";
+//import { setEmployees, getEmployees } from "../localstorage/Localstorage";
 import { useEffect, useState } from "react";
 
 import { toastSuccess, toastError, Toast } from "../components/toast/toast";
@@ -15,29 +17,31 @@ import { toastSuccess, toastError, Toast } from "../components/toast/toast";
 import "./Home.scss";
 
 export function Home() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [dateofbirth, setDateofbirth] = useState("");
+  const [DateOfBirth, setDateOfBirth] = useState("");
   const [startdate, setStartdate] = useState("");
-  const [department, setDepartment] = useState("Sales");
-  const [street, setStreet] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("Alabama");
-  const [zipcode, setZipcode] = useState("");
+
   const [error, setError] = useState([]);
 
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
+    department: "",
+    street: "",
+    city: "",
+    state: "",
+    zipcode: "",
   });
 
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    console.log(name, value);
-    setUser({ ...user, [name]: value });
+    const { id, value } = e.target;
+    console.log(e);
+    console.log(id, value);
+    setUser({ ...user, [id]: value });
   };
   useEffect(() => {
-    console.log(user);
+    console.log(user.firstName);
   }, [user]);
 
   let errors = [];
@@ -91,7 +95,7 @@ export function Home() {
   function searchAbbreviationState() {
     let ab = "";
     states.forEach((element) => {
-      if (element.name === state) {
+      if (element.name === user.state) {
         ab = element.abbreviation;
       }
     });
@@ -101,34 +105,35 @@ export function Home() {
   function saveEmployee() {
     errors = [];
     errors[4] = 0;
-    errors[0] = syntaxeControle(firstname, "1");
-    errors[1] = syntaxeControle(lastname, "1");
-    errors[2] = syntaxeControle(street, "2");
-    errors[3] = syntaxeControle(city, "1");
-    errors[5] = syntaxeControle(dateofbirth, "3");
+    errors[0] = syntaxeControle(user.firstName, "1");
+    errors[1] = syntaxeControle(user.lastName, "1");
+    errors[2] = syntaxeControle(user.street, "2");
+    errors[3] = syntaxeControle(user.city, "1");
+    errors[5] = syntaxeControle(DateOfBirth, "3");
     errors[6] = syntaxeControle(startdate, "3");
     if (errors[4] === 1) toastError("Saisie incorrecte");
 
     if (errors[4] === 0) {
-      const updatedStorage = getEmployees();
+      //const updatedStorage = getEmployees();
 
       const stateAbbreviation = searchAbbreviationState();
       let employeeData = {
-        FirstName: firstname,
-        LastName: lastname,
+        FirstName: user.firstName,
+        LastName: user.lastName,
         StartDate: startdate,
-        Department: department,
-        DateOfBirth: dateofbirth,
-        Street: street,
-        City: city,
+        Department: user.department,
+        DateOfBirth: DateOfBirth,
+        Street: user.street,
+        City: user.city,
         State: stateAbbreviation,
-        ZipCode: zipcode,
+        ZipCode: user.zipcode,
       };
 
-      updatedStorage.push(employeeData);
+      //updatedStorage.push(employeeData);
 
-      console.log(updatedStorage);
-      setEmployees(updatedStorage);
+      //console.log(updatedStorage);
+      //setEmployees(updatedStorage);
+      dispatch(addEmployee(employeeData));
 
       toastSuccess("Félicitation,vous êtes entré dans la base de HRnet");
     }
@@ -169,7 +174,7 @@ export function Home() {
             ) : null}
 
             <label>Date of Birth</label>
-            <Inputcalendar onChange={setDateofbirth} />
+            <Inputcalendar onChange={setDateOfBirth} />
             {error[5] === 1 ? (
               <span>Veuillez sellectionner une date</span>
             ) : null}
@@ -190,7 +195,7 @@ export function Home() {
                 "Human Resources",
                 "Legal",
               ]}
-              onChange={setDepartment}
+              onChange={handleChange}
             />
           </div>
           <fieldset className="createmployee_where">
@@ -200,7 +205,7 @@ export function Home() {
               association={"street"}
               text={"Street (saisie 'alphanumérique')"}
               type={"text"}
-              onChange={setStreet}
+              onChange={handleChange}
             />
 
             {error[2] === 1 ? <span>Taille insuffisante</span> : null}
@@ -213,7 +218,7 @@ export function Home() {
               association={"city"}
               text={"City  (saisie 'a-z')"}
               type={"text"}
-              onChange={setCity}
+              onChange={handleChange}
             />
             {error[3] === 1 ? <span>Taille insuffisante</span> : null}
             {error[3] === 2 ? <span>Saisie erronée</span> : null}
@@ -224,14 +229,14 @@ export function Home() {
               association={"state"}
               text={"State"}
               options={states.map((element) => element.name)}
-              onChange={setState}
+              onChange={handleChange}
             />
 
             <Input
-              association={"zip-code"}
+              association={"zipcode"}
               text={"zip-code"}
               type={"number"}
-              onChange={setZipcode}
+              onChange={handleChange}
             />
           </fieldset>
         </div>
