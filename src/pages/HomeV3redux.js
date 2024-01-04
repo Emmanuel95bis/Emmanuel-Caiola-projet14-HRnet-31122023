@@ -157,10 +157,12 @@ export function Home() {
               aria="First Name"
             />
 
-            {error[0] === 1 ? <span>Taille insuffisante</span> : null}
-            {error[0] === 2 ? <span>Saisie erronée</span> : null}
+            {error[0] === 1 ? (
+              <span role="alert">Taille insuffisante</span>
+            ) : null}
+            {error[0] === 2 ? <span role="alert">Saisie erronée</span> : null}
             {error[0] === 3 ? (
-              <span>Taille insuffisante et saisie erronée</span>
+              <span role="alert">Taille insuffisante et saisie erronée</span>
             ) : null}
             <Input
               association={"lastName"}
@@ -169,10 +171,12 @@ export function Home() {
               onChange={handleChange}
               aria="Last Name"
             />
-            {error[1] === 1 ? <span>Taille insuffisante</span> : null}
-            {error[1] === 2 ? <span>Saisie erronée</span> : null}
+            {error[1] === 1 ? (
+              <span role="alert">Taille insuffisante</span>
+            ) : null}
+            {error[1] === 2 ? <span role="alert">Saisie erronée</span> : null}
             {error[1] === 3 ? (
-              <span>Taille insuffisante et saisie erronée</span>
+              <span role="alert">Taille insuffisante et saisie erronée</span>
             ) : null}
 
             <label>Date of Birth</label>
@@ -181,7 +185,7 @@ export function Home() {
               aria-label="Select Date of Birth"
             />
             {error[5] === 1 ? (
-              <span>Veuillez sellectionner une date</span>
+              <span role="alert">Veuillez sellectionner une date</span>
             ) : null}
             <Toast />
             <label>Start Date</label>
@@ -190,7 +194,7 @@ export function Home() {
               aria-label="Select Start Date"
             />
             {error[6] === 1 ? (
-              <span>Veuillez sellectionner une date</span>
+              <span role="alert">Veuillez sellectionner une date</span>
             ) : null}
 
             <Select
@@ -218,10 +222,12 @@ export function Home() {
               aria="Street"
             />
 
-            {error[2] === 1 ? <span>Taille insuffisante</span> : null}
-            {error[2] === 2 ? <span>Saisie erronée</span> : null}
+            {error[2] === 1 ? (
+              <span role="alert">Taille insuffisante</span>
+            ) : null}
+            {error[2] === 2 ? <span role="alert">Saisie erronée</span> : null}
             {error[2] === 3 ? (
-              <span>Taille insuffisante et saisie erronée</span>
+              <span role="alert">Taille insuffisante et saisie erronée</span>
             ) : null}
 
             <Input
@@ -231,10 +237,12 @@ export function Home() {
               onChange={handleChange}
               aria="City"
             />
-            {error[3] === 1 ? <span>Taille insuffisante</span> : null}
-            {error[3] === 2 ? <span>Saisie erronée</span> : null}
+            {error[3] === 1 ? (
+              <span role="alert">Taille insuffisante</span>
+            ) : null}
+            {error[3] === 2 ? <span role="alert">Saisie erronée</span> : null}
             {error[3] === 3 ? (
-              <span>Taille insuffisante et saisie erronée</span>
+              <span role="alert">Taille insuffisante et saisie erronée</span>
             ) : null}
             <Select
               association={"state"}
@@ -258,6 +266,7 @@ export function Home() {
           children={"Save"}
           handleClick={saveEmployee}
           type={"button"}
+          aria="Save Employee"
         />
       </main>
 
