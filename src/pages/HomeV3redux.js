@@ -154,6 +154,7 @@ export function Home() {
               text={"First Name (saisie 'a-z')"}
               type={"text"}
               onChange={handleChange}
+              aria="First Name"
             />
 
             {error[0] === 1 ? <span>Taille insuffisante</span> : null}
@@ -166,6 +167,7 @@ export function Home() {
               text={"Last Name (saisie 'a-z')"}
               type={"text"}
               onChange={handleChange}
+              aria="Last Name"
             />
             {error[1] === 1 ? <span>Taille insuffisante</span> : null}
             {error[1] === 2 ? <span>Saisie erronée</span> : null}
@@ -174,13 +176,19 @@ export function Home() {
             ) : null}
 
             <label>Date of Birth</label>
-            <Inputcalendar onChange={setDateOfBirth} />
+            <Inputcalendar
+              onChange={setDateOfBirth}
+              aria-label="Select Date of Birth"
+            />
             {error[5] === 1 ? (
               <span>Veuillez sellectionner une date</span>
             ) : null}
             <Toast />
             <label>Start Date</label>
-            <Inputcalendar onChange={setStartdate} />
+            <Inputcalendar
+              onChange={setStartdate}
+              aria-label="Select Start Date"
+            />
             {error[6] === 1 ? (
               <span>Veuillez sellectionner une date</span>
             ) : null}
@@ -196,6 +204,7 @@ export function Home() {
                 "Legal",
               ]}
               onChange={handleChange}
+              aria="Department"
             />
           </div>
           <fieldset className="createmployee_where">
@@ -206,6 +215,7 @@ export function Home() {
               text={"Street (saisie 'alphanumérique')"}
               type={"text"}
               onChange={handleChange}
+              aria="Street"
             />
 
             {error[2] === 1 ? <span>Taille insuffisante</span> : null}
@@ -219,6 +229,7 @@ export function Home() {
               text={"City  (saisie 'a-z')"}
               type={"text"}
               onChange={handleChange}
+              aria="City"
             />
             {error[3] === 1 ? <span>Taille insuffisante</span> : null}
             {error[3] === 2 ? <span>Saisie erronée</span> : null}
@@ -230,6 +241,7 @@ export function Home() {
               text={"State"}
               options={states.map((element) => element.name)}
               onChange={handleChange}
+              aria="State"
             />
 
             <Input
@@ -237,6 +249,7 @@ export function Home() {
               text={"zip-code"}
               type={"number"}
               onChange={handleChange}
+              aria="zip code"
             />
           </fieldset>
         </div>
