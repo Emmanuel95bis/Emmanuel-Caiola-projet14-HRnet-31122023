@@ -19,9 +19,8 @@ export function Inputcalendar({ onChange }) {
       day: "numeric",
     });
 
-    console.log("Formatted date:", formattedDate);
     setStartDate(date);
-    console.log("Formatted date:", formattedDate);
+
     // Pass the selected date to the parent component using the onChange prop
     if (onChange) {
       onChange(formattedDate);

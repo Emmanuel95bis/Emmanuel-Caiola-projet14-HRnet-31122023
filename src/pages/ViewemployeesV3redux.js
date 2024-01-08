@@ -33,26 +33,12 @@ export function Viewemployees() {
 
   let retrievedEmployees = useSelector((state) => state.employees.isEmployee);
 
-  console.log("000000000000", retrievedEmployees);
-
-  if (retrievedEmployees) {
-    retrievedEmployees.forEach((element, index) => {
-      console.log("111111111111");
-      console.log(`Employee ${index + 1}:`, element);
-    });
-  } else {
-    console.log("No employees found"); // Handle the case where retrievedEmployees is undefined
-  }
-
   const displayedEmployees =
     displayedEntries.length !== 0
       ? filter(displayedEntries)
       : search === ""
       ? retrievedEmployees
       : filter(retrievedEmployees);
-
-  console.log("search" + search);
-  console.log(displayedEmployees);
 
   const displayedEmployeesLength = displayedEmployees.length;
 

@@ -36,13 +36,10 @@ export function Home() {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    console.log(e);
-    console.log(id, value);
+
     setUser({ ...user, [id]: value });
   };
-  useEffect(() => {
-    console.log(user.firstName);
-  }, [user]);
+  useEffect(() => {}, [user]);
 
   let errors = [];
 
@@ -129,10 +126,6 @@ export function Home() {
         ZipCode: user.zipcode,
       };
 
-      //updatedStorage.push(employeeData);
-
-      //console.log(updatedStorage);
-      //setEmployees(updatedStorage);
       dispatch(addEmployee(employeeData));
 
       toastSuccess("Félicitation,vous êtes entré dans la base de HRnet");
